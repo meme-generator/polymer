@@ -30,10 +30,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
       paper-card {
         max-width: 350px;
+        max-height: 350px;
         --paper-card-header-color: var(--primary-background-color);
         font-family: Impact;
         text-transform: uppercase;
         text-align: center;
+        -webkit-text-stroke: 1px black;
         /* If you want your things to swipe nicely, you might want to disable
          * text selection on those elements. */
         -moz-user-select: none;
@@ -81,21 +83,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <iron-pages id="memePages" selected="0">
 
-            <paper-card heading="Docker is worth looking into" image="../../images/memes/chemistry-cat.png" id="chemistryCat"
+            <paper-card heading="Docker is worth looking into" image="../../images/memes/chemistry-cat.png"
                         contentEditable="true">
               <div class="heading">
                 Even dr whiskers knows...
               </div>
             </paper-card>
 
-            <paper-card heading="" image="../../images/memes/interesting-man.png" id="interestingMan"
-                        contentEditable="true">
+            <paper-card heading="" image="../../images/memes/cat-news.png" contentEditable="true">
               <div class="heading">
-                The most interesting man in the world
+                Seems like CMS's are getting popular these days
               </div>
             </paper-card>
 
-            <paper-card heading="I just rewrote Polymer in Polmyer so you can Polymer" image="../../images/memes/xhibit.png" id="xhibit"
+            <paper-card heading="I just rewrote Polymer in Polmyer so you can Polymer" image="../../images/memes/xhibit.png"
             contentEditable="true">
             <div class="heading">
             Yo dawg...
@@ -161,13 +162,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           ];
         },
         prevPage: function() {
-          console.log(this.$,memePages.selected);
-          this.$,memePages.selectPrevious();
+          this.$.memePages.selectPrevious();
 //          this.$.chemistryCat.toggleClass('hiding');
 //          this.$.interestingMan.toggleClass('hiding');
         },
         nextPage: function() {
-          this.$,memePages.selectNext();
+          this.$.memePages.selectNext();
 //          this.$.chemistryCat.toggleClass('hiding');
 //          this.$.interestingMan.toggleClass('hiding');
         },
