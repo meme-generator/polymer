@@ -83,8 +83,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </a>
 
           <a data-route="users" href="{{baseUrl}}users">
-            <iron-icon icon="info"></iron-icon>
-            <span>Users</span>
+            <iron-icon icon="social:people"></iron-icon>
+            <span>Staff Finder</span>
           </a>
 
           <a data-route="contact" href="{{baseUrl}}contact">
@@ -118,6 +118,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
             <section data-route="home">
 
+              <br>
               <my-list></my-list>
 
               <!--<paper-material elevation="1">-->
@@ -137,26 +138,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             <section data-route="users">
               <paper-material elevation="1">
-                <h1 class="page-title focus-target" tabindex="-1">Users</h1>
-                <p>This is the users section</p>
-                <a href$="{{baseUrl}}users/Addy">Addy</a><br>
-                <a href$="{{baseUrl}}users/Rob">Rob</a><br>
-                <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-                <a href$="{{baseUrl}}users/Sam">Sam</a>
+                <h1 class="page-title focus-target" tabindex="-1">
+                  Staff Finder
+                </h1>
+
+                <code>
+                  &lt;staff-finder&gt;
+                  &lt;/staff-finder&gt;
+                </code>
               </paper-material>
             </section>
 
             <section data-route="user-info">
               <paper-material elevation="1">
-                <h1 class="page-title focus-target" tabindex="-1">User: {{params.name}}</h1>
-                <div>This is {{params.name}}'s section</div>
+                <h1 class="page-title focus-target" tabindex="-1">Contact</h1>
+                <p>This is the contact section</p>
               </paper-material>
             </section>
 
             <section data-route="contact">
               <paper-material elevation="1">
                 <h1 class="page-title focus-target" tabindex="-1">Contact</h1>
-                <p>This is the contact section</p>
+                <p>For more information, contact: </p>
+                <code>usability [ at ] bestbuycanada.ca</code>
               </paper-material>
             </section>
           </iron-pages>
