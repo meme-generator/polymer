@@ -118,24 +118,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       </iron-swipeable-container>
 
-
-
-    <!--<paper-material elevation="1">-->
-      <!--<div class="container flex-horizontal">-->
-        <!--<div class="flexchild"></div>-->
-
-      <!--&lt;!&ndash;<p class="paper-font-subhead">Meme Settings</p>&ndash;&gt;-->
-      <!--<iron-image style="width:400px; height:400px; background-color: lightgray;" id="chemistryCat"-->
-                  <!--sizing="cover" preload fade src="../../images/memes/chemistry-cat.png"></iron-image>-->
-      <!--<iron-image style="width:400px; height:400px; background-color: lightgray;" id="interestingMan"-->
-                  <!--sizing="cover" preload fade src="../../images/memes/interesting-man.png" class="hiding"></iron-image>-->
-        <!--<div class="flexchild"></div>-->
-      <!--</div>-->
-
-      <!--<p contentEditable="true">I KNOW DEV OPS</p>-->
-    <!--</paper-material>-->
-
-    <paper-fab icon="chevron-left" title="left" id="pageLeft" on-tap="prevPage"></paper-fab>
+    <paper-fab icon="chevron-left" title="left" id="pageLeft" on-tap="previousPage"></paper-fab>
     <paper-fab icon="chevron-right" title="right" id="pageRight" on-tap="nextPage"></paper-fab>
 
     <!--<ul>-->
@@ -158,6 +141,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             notify: true
           }
         },
+        listeners: {
+          'iron-swipe': 'nextPage'
+        },
 
         ready: function() {
           this.items = [
@@ -169,16 +155,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             'Offline support with the Platinum Service Worker Elements'
           ];
         },
-        prevPage: function() {
-          this.$.memePages.selectPrevious();
-//          this.$.chemistryCat.toggleClass('hiding');
-//          this.$.interestingMan.toggleClass('hiding');
-        },
         nextPage: function() {
           this.$.memePages.selectNext();
-//          this.$.chemistryCat.toggleClass('hiding');
-//          this.$.interestingMan.toggleClass('hiding');
+          console.log('next!');
         },
+        previousPage: function() {
+          this.$.memePages.selectPrevious();
+        }
       });
     })();
   </script>
