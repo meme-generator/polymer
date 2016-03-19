@@ -34,12 +34,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-family: Impact;
         text-transform: uppercase;
         text-align: center;
+        /* If you want your things to swipe nicely, you might want to disable
+         * text selection on those elements. */
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: default;
       }
       .heading {
         color: #ffffff;
         position: absolute;
         top: 16px;
         left: 16px;
+        font-size: 24px;
       }
       #pageLeft {
         left: 24px;
@@ -62,39 +70,46 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .flexchild {
         @apply(--layout-flex);
       }
-
     </style>
 
-    <div class="container flex-horizontal">
-      <div class="flexchild"></div>
 
-      <paper-card heading="I know dev ops" image="../../images/memes/chemistry-cat.png" id="chemistryCat"
-                  contentEditable="true">
-        <div class="heading">
-          Heading
+
+      <iron-swipeable-container swipe-style="curve">
+
+        <div class="container flex-horizontal">
+          <div class="flexchild"></div>
+
+          <iron-pages id="memePages" selected="0">
+
+            <paper-card heading="Docker is worth looking into" image="../../images/memes/chemistry-cat.png" id="chemistryCat"
+                        contentEditable="true">
+              <div class="heading">
+                Even dr whiskers knows...
+              </div>
+            </paper-card>
+
+            <paper-card heading="" image="../../images/memes/interesting-man.png" id="interestingMan"
+                        contentEditable="true">
+              <div class="heading">
+                The most interesting man in the world
+              </div>
+            </paper-card>
+
+            <paper-card heading="I just rewrote Polymer in Polmyer so you can Polymer" image="../../images/memes/xhibit.png" id="xhibit"
+            contentEditable="true">
+            <div class="heading">
+            Yo dawg...
+            </div>
+            </paper-card>
+
+          </iron-pages>
+
+          <div class="flexchild"></div>
         </div>
-        <!--<div class="card-actions">-->
-          <!--<paper-button>Share</paper-button>-->
-          <!--<paper-button>Explore!</paper-button>-->
-        <!--</div>-->
-      </paper-card>
 
-      <paper-card heading="Interesting man" image="../../images/memes/interesting-man.png" id="interestingMan" class="hiding"
-                  contentEditable="true">
-        <div class="heading">
-          Heading
-        </div>
-        <!--<div class="card-content">-->
-          <!--Interesting-man-->
-        <!--</div>-->
-        <!--<div class="card-actions">-->
-          <!--<paper-button>Share</paper-button>-->
-          <!--&lt;!&ndash;<paper-button>Explore!</paper-button>&ndash;&gt;-->
-        <!--</div>-->
-      </paper-card>
+      </iron-swipeable-container>
 
-      <div class="flexchild"></div>
-    </div>
+
 
     <!--<paper-material elevation="1">-->
       <!--<div class="container flex-horizontal">-->
@@ -146,12 +161,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           ];
         },
         prevPage: function() {
-          this.$.chemistryCat.toggleClass('hiding');
-          this.$.interestingMan.toggleClass('hiding');
+          console.log(this.$,memePages.selected);
+          this.$,memePages.selectPrevious();
+//          this.$.chemistryCat.toggleClass('hiding');
+//          this.$.interestingMan.toggleClass('hiding');
         },
         nextPage: function() {
-          this.$.chemistryCat.toggleClass('hiding');
-          this.$.interestingMan.toggleClass('hiding');
+          this.$,memePages.selectNext();
+//          this.$.chemistryCat.toggleClass('hiding');
+//          this.$.interestingMan.toggleClass('hiding');
         },
       });
     })();
