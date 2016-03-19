@@ -21,13 +21,47 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       span {
         @apply(--paper-font-body1);
       }
+
+      paper-fab {
+        position: fixed;
+        bottom: 24px;
+        z-index: 9999;
+        transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);;
+      }
+      #pageLeft {
+        left: 24px;
+      }
+      #pageRight {
+        right: 24px;
+      }
+      p {
+        font-size: 44px;
+        position: absolute;
+        top: 65px;
+        color: white;
+      }
+      .hiding {
+        display: none;
+      }
     </style>
 
-    <ul>
-      <template is="dom-repeat" items="{{items}}">
-        <li><span>{{item}}</span></li>
-      </template>
-    </ul>
+    <paper-material elevation="1">
+      <!--<p class="paper-font-subhead">Meme Settings</p>-->
+      <iron-image style="width:400px; height:400px; background-color: lightgray;" id="chemistryCat"
+                  sizing="cover" preload fade src="../../images/memes/chemistry-cat.png"></iron-image>
+      <iron-image style="width:400px; height:400px; background-color: lightgray;" id="interestingMan"
+                  sizing="cover" preload fade src="../../images/memes/interesting-man.png" class="hiding"></iron-image>
+      <p contentEditable="true">I KNOW DEV OPS</p>
+    </paper-material>
+
+    <paper-fab icon="chevron-left" title="left" id="pageLeft" on-tap="prevPage"></paper-fab>
+    <paper-fab icon="chevron-right" title="right" id="pageRight" on-tap="nextPage"></paper-fab>
+
+    <!--<ul>-->
+      <!--<template is="dom-repeat" items="{{items}}">-->
+        <!--<li><span>{{item}}</span></li>-->
+      <!--</template>-->
+    <!--</ul>-->
   </template>
 
   <script>
@@ -53,7 +87,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             'Routing with Page.js',
             'Offline support with the Platinum Service Worker Elements'
           ];
-        }
+        },
+        prevPage: function() {
+          console.log('previous!');
+          this.$.chemistryCat.toggleClass('hiding');
+          this.$.interestingMan.toggleClass('hiding');
+        },
+        nextPage: function() {
+          console.log('next!');
+          console.log(this.$.chemistryCat);
+          this.$.chemistryCat.toggleClass('hiding');
+          this.$.interestingMan.toggleClass('hiding');
+        },
       });
     })();
   </script>
