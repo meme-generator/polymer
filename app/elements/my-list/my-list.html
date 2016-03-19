@@ -84,39 +84,43 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
 
-      <iron-swipeable-container swipe-style="curve">
+
 
         <div class="container flex-horizontal">
           <div class="flexchild"></div>
 
           <iron-pages id="memePages" selected="0">
 
+            <iron-swipeable-container swipe-style="curve">
             <paper-card heading="Docker is worth looking into" image="../../images/memes/chemistry-cat.png"
                         contentEditable="true">
               <div class="heading">
                 Even dr whiskers knows...
               </div>
             </paper-card>
+            </iron-swipeable-container>
 
-            <paper-card heading="" image="../../images/memes/cat-news.png" contentEditable="true">
-              <div class="heading">
-                Seems like CMS's are getting popular these days
-              </div>
-            </paper-card>
+            <iron-swipeable-container swipe-style="curve">
+              <paper-card heading="" image="../../images/memes/cat-news.png" contentEditable="true">
+                <div class="heading">
+                  Seems like CMS's are getting popular these days
+                </div>
+              </paper-card>
+            </iron-swipeable-container>
 
-            <paper-card heading="I just rewrote Polymer in Polmyer so you can Polymer" image="../../images/memes/xhibit.png"
-            contentEditable="true">
-            <div class="heading">
-            Yo dawg...
-            </div>
-            </paper-card>
+            <iron-swipeable-container swipe-style="curve">
+              <paper-card heading="I just rewrote Polymer in Polmyer so you can Polymer" image="../../images/memes/xhibit.png"
+              contentEditable="true">
+                <div class="heading">
+                Yo dawg...
+                </div>
+              </paper-card>
+            </iron-swipeable-container>
 
           </iron-pages>
 
           <div class="flexchild"></div>
         </div>
-
-      </iron-swipeable-container>
 
     <paper-fab icon="chevron-left" title="left" id="pageLeft" on-tap="previousPage"></paper-fab>
     <paper-fab icon="chevron-right" title="right" id="pageRight" on-tap="nextPage"></paper-fab>

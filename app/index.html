@@ -77,12 +77,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Drawer Content -->
         <paper-menu class="app-menu" attr-for-selected="data-route" selected="[[route]]">
-          <a data-route="home" href="{{baseUrl}}">
+          <a href="{{baseUrl}}">
             <iron-icon icon="apps"></iron-icon>
             <span>Apps</span>
           </a>
 
-          <a data-route="users" href="{{baseUrl}}users">
+          <a data-route="home" href="{{baseUrl}}" class="sublist">
+            <iron-icon icon="build"></iron-icon>
+            <span>Meme Generator</span>
+          </a>
+
+          <a data-route="users" href="{{baseUrl}}users" class="sublist">
             <iron-icon icon="social:people"></iron-icon>
             <span>Staff Finder</span>
           </a>
@@ -92,6 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <span>Contact</span>
           </a>
         </paper-menu>
+
       </paper-scroll-header-panel>
 
       <!-- Main Area -->
