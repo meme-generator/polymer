@@ -32,7 +32,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         max-width: 350px;
         max-height: 350px;
         --paper-card-header-color: var(--primary-background-color);
-        font-family: Impact;
+        font-family: Impact, Charcoal, sans-serif;
+        font-weight: 900;
         text-transform: uppercase;
         text-align: center;
         -webkit-text-stroke: 1px black;
@@ -109,7 +110,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </iron-swipeable-container>
 
             <iron-swipeable-container swipe-style="curve">
-              <paper-card heading="I just rewrote Polymer in Polmyer so you can Polymer" image="../../images/memes/xhibit.png"
+              <paper-card heading="I just rewrote Polymer in Polymer so you can Polymer" image="../../images/memes/xhibit.png"
               contentEditable="true">
                 <div class="heading">
                 Yo dawg...
@@ -122,14 +123,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <div class="flexchild"></div>
         </div>
 
+    <!--TODO: Needs correct meme objects to be added to this component in the ready function-->
+    <!--Recommend using html templates, similar to the following: -->
+
+    <!--<div class="container flex-horizontal">-->
+      <!--<div class="flexchild"></div>-->
+        <!--<iron-pages id="memePagesTemplate" selected="0">-->
+          <!--<template is="dom-repeat" items="{{items}}">-->
+            <!--<iron-swipeable-container swipe-style="curve">-->
+              <!--<paper-card heading="[[item.header]]" image="[[item.img]]"-->
+                          <!--contentEditable="true">-->
+                <!--<div class="heading">-->
+                  <!--<span>{{item.intro}}</span>-->
+                <!--</div>-->
+              <!--</paper-card>-->
+            <!--</iron-swipeable-container>-->
+          <!--</template>-->
+        <!--</iron-pages>-->
+      <!--<div class="flexchild"></div>-->
+    <!--</div>-->
+
     <paper-fab icon="chevron-left" title="left" id="pageLeft" on-tap="previousPage"></paper-fab>
     <paper-fab icon="chevron-right" title="right" id="pageRight" on-tap="nextPage"></paper-fab>
 
-    <!--<ul>-->
-      <!--<template is="dom-repeat" items="{{items}}">-->
-        <!--<li><span>{{item}}</span></li>-->
-      <!--</template>-->
-    <!--</ul>-->
+
   </template>
 
   <script>
@@ -151,17 +168,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         ready: function() {
           this.items = [
-            'Responsive Web App boilerplate',
-            'Iron Elements and Paper Elements',
-            'End-to-end Build Tooling (including Vulcanize)',
-            'Unit testing with Web Component Tester',
-            'Routing with Page.js',
-            'Offline support with the Platinum Service Worker Elements'
+            'heading',
+            'footer',
+            'filepath'
           ];
         },
         nextPage: function() {
           this.$.memePages.selectNext();
-          console.log('next!');
         },
         previousPage: function() {
           this.$.memePages.selectPrevious();
