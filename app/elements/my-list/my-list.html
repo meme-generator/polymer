@@ -89,35 +89,54 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-pages id="memePages" selected="0">
 
             <iron-swipeable-container swipe-style="curve">
-            <paper-card heading="Docker is worth looking into" image="../../images/memes/chemistry-cat.png"
+            <paper-card heading="{{footer}}" image="../../images/memes/chemistry-cat.png"
                         contentEditable="true">
               <div class="heading">
-                Even dr whiskers knows...
+                {{greeting}}
               </div>
             </paper-card>
+
             </iron-swipeable-container>
 
             <iron-swipeable-container swipe-style="curve">
-              <paper-card heading="" image="../../images/memes/cat-news.png" contentEditable="true">
+              <paper-card heading="{{footer}}" image="../../images/memes/cat-news.png" contentEditable="true">
                 <div class="heading">
-                  Seems like CMS's are getting popular these days
+                  {{greeting}}
+                  <!--Seems like CMS's are getting popular these days-->
                 </div>
               </paper-card>
             </iron-swipeable-container>
 
             <iron-swipeable-container swipe-style="curve">
-              <paper-card heading="I just rewrote Polymer in Polymer so you can Polymer" image="../../images/memes/xhibit.png"
+              <paper-card heading="{{footer}}" image="../../images/memes/xhibit.png"
               contentEditable="true">
                 <div class="heading">
-                Yo dawg...
+                  {{greeting}}
+                <!--Yo dawg...-->
                 </div>
               </paper-card>
             </iron-swipeable-container>
 
           </iron-pages>
 
+
+
           <div class="flexchild"></div>
         </div>
+
+    <paper-input-container>
+      <paper-icon-button prefix icon="create"></paper-icon-button>
+      <label>Top Line</label>
+      <input is="iron-input" value="{{greeting::input}}">
+      <paper-icon-button suffix icon="close"></paper-icon-button>
+    </paper-input-container>
+
+    <paper-input-container>
+      <paper-icon-button prefix icon="create"></paper-icon-button>
+      <label>Bottom Line</label>
+      <input is="iron-input" value="{{footer::input}}">
+      <paper-icon-button suffix icon="close"></paper-icon-button>
+    </paper-input-container>
 
     <!--TODO: Needs correct meme objects to be added to this component in the ready function-->
     <!--Recommend using html templates, similar to the following: -->
@@ -155,6 +174,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         properties: {
           items: {
             type: Array,
+            notify: true
+          },
+          greeting: {
+            type: String,
+            value: '',
+            notify: true
+          },
+          footer: {
+            type: String,
+            value: '',
             notify: true
           }
         },
