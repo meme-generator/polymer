@@ -112,6 +112,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <div class="flexchild"></div>
         </div>
 
+
+    <div class="container flex-horizontal">
+      <div class="flexchild"></div>
+      <paper-dropdown-menu label="Choose your meme">
+        <paper-listbox class="dropdown-content">
+          <paper-item>chemistry-cat</paper-item>
+          <paper-item>interesting-man</paper-item>
+          <paper-item>cat-news</paper-item>
+          <paper-item>yo-dawg</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
+      <div class="flexchild"></div>
+    </div>
+
     <paper-input-container>
       <paper-icon-button prefix icon="create"></paper-icon-button>
       <label>Top Line</label>
@@ -125,13 +139,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <input is="iron-input" value="{{footer::input}}">
       <paper-icon-button suffix icon="close" on-tap="clearInput" data-property-to-clear="footer"></paper-icon-button>
     </paper-input-container>
-    
 
     <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.png"></html-canvas-image>
-    <paper-fab icon="file-download" title="Download" on-tap="saveImage" class="download"></paper-fab>
-
-    <paper-fab icon="chevron-left" title="left" id="pageLeft" on-tap="previousPage"></paper-fab>
-    <paper-fab icon="chevron-right" title="right" id="pageRight" on-tap="nextPage"></paper-fab>
+    <paper-fab icon="file-download" title="Download" on-tap="saveImage" id="pageRight"></paper-fab>
 
   </template>
 
