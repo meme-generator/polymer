@@ -125,28 +125,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <input is="iron-input" value="{{footer::input}}">
       <paper-icon-button suffix icon="close"></paper-icon-button>
     </paper-input-container>
-
-
-
-    <!--TODO: Needs correct meme objects to be added to this component in the ready function-->
-    <!--Recommend using html templates, similar to the following: -->
-
-    <!--<div class="container flex-horizontal">-->
-      <!--<div class="flexchild"></div>-->
-        <!--<iron-pages id="memePagesTemplate" selected="0">-->
-          <!--<template is="dom-repeat" items="{{items}}">-->
-            <!--<iron-swipeable-container swipe-style="curve">-->
-              <!--<paper-card heading="[[item.header]]" image="[[item.img]]"-->
-                          <!--contentEditable="true">-->
-                <!--<div class="heading">-->
-                  <!--<span>{{item.intro}}</span>-->
-                <!--</div>-->
-              <!--</paper-card>-->
-            <!--</iron-swipeable-container>-->
-          <!--</template>-->
-        <!--</iron-pages>-->
-      <!--<div class="flexchild"></div>-->
-    <!--</div>-->
+    
 
     <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.png"></html-canvas-image>
     <paper-fab icon="file-download" title="Download" on-tap="saveImage" class="download"></paper-fab>
