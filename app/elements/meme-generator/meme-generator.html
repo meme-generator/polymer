@@ -116,14 +116,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <paper-icon-button prefix icon="create"></paper-icon-button>
       <label>Top Line</label>
       <input is="iron-input" value="{{greeting::input}}">
-      <paper-icon-button suffix icon="close"></paper-icon-button>
+      <paper-icon-button suffix icon="close" on-tap="clearInput" data-property-to-clear="greeting"></paper-icon-button>
     </paper-input-container>
 
     <paper-input-container>
       <paper-icon-button prefix icon="create"></paper-icon-button>
       <label>Bottom Line</label>
       <input is="iron-input" value="{{footer::input}}">
-      <paper-icon-button suffix icon="close"></paper-icon-button>
+      <paper-icon-button suffix icon="close" on-tap="clearInput" data-property-to-clear="footer"></paper-icon-button>
     </paper-input-container>
     
 
@@ -167,6 +167,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
          */
         saveImage: function() {
           this.$.memeImageGenerator.generateImage();
+        },
+
+        /**
+         * Clear a specified input
+         */
+        clearInput: function(e) {
+          var propertyToClear = e.target.parentElement.getAttribute('data-property-to-clear');
+          this[propertyToClear] = '';
         },
 
         ready: function() {
