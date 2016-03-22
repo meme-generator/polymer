@@ -29,6 +29,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         z-index: 9999;
         transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);;
       }
+
+      paper-fab.download {
+        bottom: 300px;
+        left: 60px;
+        position: absolute;
+        background: #03a9f4;
+      }
+
       paper-card {
         max-width: 350px;
         max-height: 350px;
@@ -137,10 +145,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <input is="iron-input" value="{{footer::input}}">
       <paper-icon-button suffix icon="close"></paper-icon-button>
     </paper-input-container>
-    <paper-input-container>
-      <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.png"></html-canvas-image>
-      <paper-button toggles raised on-tap="saveImage"><iron-icon icon="file-download"></iron-icon>download</paper-button>
-    </paper-input-container>
+
+
 
     <!--TODO: Needs correct meme objects to be added to this component in the ready function-->
     <!--Recommend using html templates, similar to the following: -->
@@ -161,6 +167,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <!--</iron-pages>-->
       <!--<div class="flexchild"></div>-->
     <!--</div>-->
+
+    <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.png"></html-canvas-image>
+    <paper-fab icon="file-download" title="Download" on-tap="saveImage" class="download"></paper-fab>
 
     <paper-fab icon="chevron-left" title="left" id="pageLeft" on-tap="previousPage"></paper-fab>
     <paper-fab icon="chevron-right" title="right" id="pageRight" on-tap="nextPage"></paper-fab>
