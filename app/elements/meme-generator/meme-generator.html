@@ -10,6 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/html-canvas-image/html-canvas-image.html">
 
 <dom-module id="meme-generator">
@@ -92,37 +93,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <div class="container flex-horizontal">
           <div class="flexchild"></div>
-
+          <iron-ajax auto url="./memes.json" handle-as="json" last-response="{{memesDataResponse}}"></iron-ajax>
           <iron-pages id="memePages" selected="0">
+            <template is="dom-repeat" items="[[memesDataResponse.items]]">
+              <iron-swipeable-container swipe-style="curve">
+                <paper-card heading="{{footer}}" image="../../images/memes/[[item.imageUrl]]" contentEditable="true">
+                  <div class="heading">
+                    {{greeting}}
+                  </div>
+                </paper-card>
 
-            <iron-swipeable-container swipe-style="curve">
-            <paper-card heading="{{footer}}" image="../../images/memes/chemistry-cat.png"
-                        contentEditable="true">
-              <div class="heading">
-                {{greeting}}
-              </div>
-            </paper-card>
-
-            </iron-swipeable-container>
-
-            <iron-swipeable-container swipe-style="curve">
-              <paper-card heading="{{footer}}" image="../../images/memes/cat-news.png" contentEditable="true">
-                <div class="heading">
-                  {{greeting}}
-                  <!--Seems like CMS's are getting popular these days-->
-                </div>
-              </paper-card>
-            </iron-swipeable-container>
-
-            <iron-swipeable-container swipe-style="curve">
-              <paper-card heading="{{footer}}" image="../../images/memes/xhibit.png"
-              contentEditable="true">
-                <div class="heading">
-                  {{greeting}}
-                <!--Yo dawg...-->
-                </div>
-              </paper-card>
-            </iron-swipeable-container>
+              </iron-swipeable-container>
+            </template>
 
           </iron-pages>
 
@@ -171,7 +153,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <paper-fab icon="chevron-left" title="left" id="pageLeft" on-tap="previousPage"></paper-fab>
     <paper-fab icon="chevron-right" title="right" id="pageRight" on-tap="nextPage"></paper-fab>
-
 
   </template>
 
