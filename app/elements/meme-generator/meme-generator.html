@@ -93,7 +93,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <div class="container flex-horizontal">
           <div class="flexchild"></div>
-          <iron-ajax auto url="./memes.json" handle-as="json" last-response="{{memesDataResponse}}"></iron-ajax>
+          <iron-ajax auto url="https://raw.githubusercontent.com/ux-testing/polymer-starter-kit/master/app/elements/meme-generator/memes.json" handle-as="json" last-response="{{memesDataResponse}}"></iron-ajax>
           <iron-pages id="memePages" selected="0">
             <template is="dom-repeat" items="[[memesDataResponse.items]]">
               <iron-swipeable-container swipe-style="curve">
