@@ -10,8 +10,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/html-canvas-image/html-canvas-image.html">
 
-<dom-module id="my-list">
+<dom-module id="meme-generator">
   <template>
     <style>
       :host {
@@ -120,7 +121,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </iron-pages>
 
 
-
           <div class="flexchild"></div>
         </div>
 
@@ -136,6 +136,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <label>Bottom Line</label>
       <input is="iron-input" value="{{footer::input}}">
       <paper-icon-button suffix icon="close"></paper-icon-button>
+    </paper-input-container>
+    <paper-input-container>
+      <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.png"></html-canvas-image>
+      <paper-button raised on-tap="saveImage">Download</paper-button>
     </paper-input-container>
 
     <!--TODO: Needs correct meme objects to be added to this component in the ready function-->
@@ -169,7 +173,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       'use strict';
 
       Polymer({
-        is: 'my-list',
+        is: 'meme-generator',
 
         properties: {
           items: {
@@ -189,6 +193,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         listeners: {
           'iron-swipe': 'nextPage'
+        },
+
+        /**
+         * Generate image
+         */
+        saveImage: function() {
+          this.$.memeImageGenerator.generateImage();
         },
 
         ready: function() {
