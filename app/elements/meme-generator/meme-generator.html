@@ -115,7 +115,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="container flex-horizontal">
       <div class="flexchild"></div>
 
-      <paper-dropdown-menu label="Choose your meme">
+      <paper-dropdown-menu label="Choose your meme" id="memeDropdownSelect">
         <paper-listbox class="dropdown-content">
 
           <template is="dom-repeat" items="[[memesDataResponse.data.memes]]">
@@ -171,7 +171,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
         },
         listeners: {
-          'iron-swipe': 'nextPage'
+          'iron-swipe': 'nextPage',
+          'paper-dropdown-close': 'memeSelected'
         },
 
         /**
@@ -201,6 +202,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         previousPage: function() {
           this.$.memePages.selectPrevious();
+        },
+        memeSelected: function() {
+          console.log(this.$.memeDropdownSelect);
         }
       });
     })();
