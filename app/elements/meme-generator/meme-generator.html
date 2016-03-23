@@ -97,7 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-pages id="memePages" selected="0">
             <template is="dom-repeat" items="[[memesDataResponse.items]]">
               <iron-swipeable-container swipe-style="curve">
-                <paper-card heading="{{footer}}" image="../../images/memes/[[item.imageUrl]]" contentEditable="true">
+                <paper-card heading="{{footer}}" image="../../images/memes/[[item.imageUrl]]">
                   <div class="heading">
                     {{greeting}}
                   </div>
