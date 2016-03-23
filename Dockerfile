@@ -1,13 +1,11 @@
 FROM ubuntu:14.04
 
-MAINTAINER Donald Trump
-
-RUN apt-get update
+MAINTAINER Chris Saunders <slapheadted@gmail.com>
 
 RUN apt-get install --yes wget
 
 # INSTALL GIT
-RUN apt-get install git=1:1.9.1-1ubuntu0.2 --yes
+RUN apt-get install --yes git
 
 # INSTALL NODE - http://askubuntu.com/questions/672994/how-to-install-nodejs-4-on-ubuntu-15-04-64-bit-edition
 RUN wget -qO- https://deb.nodesource.com/setup_4.x | sudo bash
@@ -23,6 +21,10 @@ RUN npm install -g gulp@3.9.1
 COPY . /src
 
 WORKDIR /src
+
+RUN npm install
+
+RUN bower --allow-root install
 
 EXPOSE 5000
 
