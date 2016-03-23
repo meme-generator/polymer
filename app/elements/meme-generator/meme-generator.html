@@ -116,15 +116,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="flexchild"></div>
 
       <paper-dropdown-menu label="Choose your meme" id="memeDropdownSelect">
-        <paper-listbox class="dropdown-content">
-
-          <template is="dom-repeat" items="[[memesDataResponse.data.memes]]">
-            <paper-item>[[item.name]]</paper-item>
+        <paper-listbox class="dropdown-content" selected="0">
+          <template is="dom-repeat" items="[[memesDataResponse.data.memes]]" as="meme">
+            <paper-item on-tap="memeSelected" id="meme-option-{{ index }}">
+              <img src="[[meme.url]]" width="50" height="50"/> [[meme.name]]
+            </paper-item>
           </template>
-
         </paper-listbox>
       </paper-dropdown-menu>
-
       <div class="flexchild"></div>
     </div>
 
@@ -171,8 +170,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
         },
         listeners: {
-          'iron-swipe': 'nextPage',
-          'paper-dropdown-close': 'memeSelected'
+          'iron-swipe': 'nextPage'
         },
 
         /**
@@ -197,14 +195,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             'filepath'
           ];
         },
+
         nextPage: function() {
           this.$.memePages.selectNext();
         },
+
         previousPage: function() {
           this.$.memePages.selectPrevious();
         },
-        memeSelected: function() {
-          console.log(this.$.memeDropdownSelect);
+
+        /**
+         * Take the selected index and move our memePages to that index
+         * FIXME: Figure out correct way to do this with event-listener. This is a
+         * brute force way.
+         */
+        memeSelected: function(e) {
+          this.$.memePages.select(e.target.getAttribute('id').match(/(\d+)/)[0]);
         }
       });
     })();
