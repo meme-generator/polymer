@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER Donald Trump
+MAINTAINER Chris Saunders <slapheadted@gmail.com>
 
 RUN apt-get update
 
@@ -23,6 +23,10 @@ RUN npm install -g gulp@3.9.1
 COPY . /src
 
 WORKDIR /src
+
+RUN npm install
+
+RUN bower --allow-root install
 
 EXPOSE 5000
 
