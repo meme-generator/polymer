@@ -2,12 +2,10 @@ FROM ubuntu:14.04
 
 MAINTAINER Chris Saunders <slapheadted@gmail.com>
 
-RUN apt-get update
-
 RUN apt-get install --yes wget
 
 # INSTALL GIT
-RUN apt-get install --yes git=1:1.9.1-1ubuntu0.2
+RUN apt-get install --yes git
 
 # INSTALL NODE - http://askubuntu.com/questions/672994/how-to-install-nodejs-4-on-ubuntu-15-04-64-bit-edition
 RUN wget -qO- https://deb.nodesource.com/setup_4.x | sudo bash
