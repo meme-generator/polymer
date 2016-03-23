@@ -24,7 +24,7 @@ WORKDIR /src
 
 RUN npm install
 
-RUN bower --allow-root install
+RUN bower --config.interactive=false --allow-root install
 
 EXPOSE 5000
 
