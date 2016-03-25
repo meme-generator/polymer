@@ -46,7 +46,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-dropdown-menu label="Choose your meme" id="memeDropdownSelect">
             <paper-menu class="dropdown-content" selected="{{selectedMemeIndex}}">
               <template is="dom-repeat" items="[[memesDataResponse.data.memes]]" as="meme">
-                <paper-item id="meme-option-{{ index }}">
+                <paper-item>
                   <iron-image class="meme-thumbnail" sizing="cover" preload fade src="[[meme.url]]"></iron-image>
                   <span>[[meme.name]]</span>
                 </paper-item>
