@@ -19,13 +19,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="container flex-horizontal">
       <div class="flexchild"></div>
+
       <iron-ajax auto url="https://api.imgflip.com/get_memes" handle-as="json" last-response="{{memesDataResponse}}"></iron-ajax>
       <iron-pages id="memePages" selected="{{selectedMemeIndex}}">
 
         <template is="dom-repeat" items="[[memesDataResponse.data.memes]]">
           <iron-swipeable-container swipe-style="curve">
             <paper-card class="meme-card">
-              <iron-image class="meme" sizing="cover" preload fade src="[[item.url]]"></iron-image>
+              <iron-image style="height: 300px; width: 300px; background-color: lightgray;"
+                          sizing="cover" preload fade src="[[item.url]]"></iron-image>
               <p class="meme-header meme-text">{{header}}</p>
               <p class="meme-footer meme-text">{{footer}}</p>
             </paper-card>
@@ -39,7 +41,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="container flex-horizontal">
       <div class="flexchild"></div>
-
       <paper-card>
 
           <paper-dropdown-menu label="Choose your meme" id="memeDropdownSelect">
@@ -57,7 +58,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <paper-textarea label="Bottom line" is="iron-input" value="{{footer::input}}"></paper-textarea>
 
       </paper-card>
-
       <div class="flexchild"></div>
     </div>
 
