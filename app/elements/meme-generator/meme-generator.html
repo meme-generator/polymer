@@ -42,8 +42,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <paper-card>
 
-        <div class="container flex-horizontal">
-          <div class="flexchild"></div>
           <paper-dropdown-menu label="Choose your meme" id="memeDropdownSelect">
             <paper-menu class="dropdown-content" selected="{{selectedMemeIndex}}">
               <template is="dom-repeat" items="[[memesDataResponse.data.memes]]" as="meme">
@@ -54,9 +52,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </template>
             </paper-menu>
           </paper-dropdown-menu>
-          <div class="flexchild"></div>
-        </div>
-
 
         <paper-textarea label="Top line" is="iron-input" value="{{header::input}}"></paper-textarea>
         <paper-textarea label="Bottom line" is="iron-input" value="{{footer::input}}"></paper-textarea>

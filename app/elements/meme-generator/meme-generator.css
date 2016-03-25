@@ -44,10 +44,13 @@ paper-card:active {
   width: 300px;
 }
 .meme-header {
-  top: 0;
+  top: -18px;
 }
 .meme-footer {
-  top: 200px;
+  top: 180px;
+}
+#memeDropdownSelect {
+  width: 100%;
 }
 .meme-thumbnail {
   width:50px;
