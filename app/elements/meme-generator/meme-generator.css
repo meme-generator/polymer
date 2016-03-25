@@ -19,17 +19,48 @@ paper-fab.download {
 }
 paper-card {
   padding: 24px;
-  margin: 8px;
+  width: 300px;
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+paper-card:hover, paper-card:focus {
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),
+  0 1px 8px 0 rgba(0, 0, 0, 0.12),
+  0 3px 3px -2px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+paper-card:active {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+  0 1px 10px 0 rgba(0, 0, 0, 0.12),
+  0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.meme-card {
+  padding: 0;
+  height: 300px;
+  width: 300px;
+}
+.meme {
+  height:300px;
+  width: 300px;
+}
+.meme-header {
+  top: 0;
+}
+.meme-footer {
+  top: 200px;
 }
 .meme-thumbnail {
   width:50px;
   height:50px;
+  background-color: lightgray;
 }
 .meme-text, .meme-card-image {
+  font-size: 34px;
+  position: absolute;
+  color: white;
   padding: 0;
   max-width: 350px;
   max-height: 200px;
-  --paper-card-header-color: var(--primary-background-color);
   font-family: Impact, Charcoal, sans-serif;
   font-weight: 900;
   text-transform: uppercase;
@@ -56,19 +87,13 @@ paper-card {
   position: absolute;
   top: 16px;
   left: 16px;
-  font-size: 24px;
+  font-size: 18px;
 }
 #pageLeft {
   left: 24px;
 }
 #pageRight {
   right: 24px;
-}
-p {
-  font-size: 44px;
-  position: absolute;
-  top: 65px;
-  color: white;
 }
 .hiding {
   display: none;

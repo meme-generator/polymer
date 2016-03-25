@@ -24,10 +24,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <template is="dom-repeat" items="[[memesDataResponse.data.memes]]">
           <iron-swipeable-container swipe-style="curve">
-            <paper-card heading="{{footer}}" image="[[item.url]]" class="meme-card-image">
-              <div class="heading meme-text">
-                {{greeting}}
-              </div>
+            <paper-card class="meme-card">
+              <iron-image class="meme" sizing="cover" preload fade src="[[item.url]]"></iron-image>
+              <p class="meme-header meme-text">{{header}}</p>
+              <p class="meme-footer meme-text">{{footer}}</p>
             </paper-card>
           </iron-swipeable-container>
         </template>
@@ -36,9 +36,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <div class="flexchild"></div>
     </div>
-
-
-
 
     <div class="container flex-horizontal">
       <div class="flexchild"></div>
@@ -51,8 +48,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <paper-menu class="dropdown-content" selected="{{selectedMemeIndex}}">
               <template is="dom-repeat" items="[[memesDataResponse.data.memes]]" as="meme">
                 <paper-item id="meme-option-{{ index }}">
-                  <iron-image class="meme-thumbnail" background-color: lightgray;"
-                              sizing="cover" preload fade src="[[meme.url]]"></iron-image>
+                  <iron-image class="meme-thumbnail" sizing="cover" preload fade src="[[meme.url]]"></iron-image>
                   <span>[[meme.name]]</span>
                 </paper-item>
               </template>
@@ -62,7 +58,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
 
 
-        <paper-textarea label="Top line" is="iron-input" value="{{greeting::input}}"></paper-textarea>
+        <paper-textarea label="Top line" is="iron-input" value="{{header::input}}"></paper-textarea>
         <paper-textarea label="Bottom line" is="iron-input" value="{{footer::input}}"></paper-textarea>
 
       </paper-card>
@@ -87,7 +83,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             type: Array,
             notify: true
           },
-          greeting: {
+          header: {
             type: String,
             value: '',
             notify: true
