@@ -24,8 +24,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <template is="dom-repeat" items="[[memesDataResponse.data.memes]]">
           <iron-swipeable-container swipe-style="curve">
-            <paper-card heading="{{footer}}" image="[[item.url]]">
-              <div class="heading">
+            <paper-card heading="{{footer}}" image="[[item.url]]" class="meme-card-image">
+              <div class="heading meme-text">
                 {{greeting}}
               </div>
             </paper-card>
@@ -36,7 +36,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <div class="flexchild"></div>
     </div>
-
 
     <div class="container flex-horizontal">
       <div class="flexchild"></div>

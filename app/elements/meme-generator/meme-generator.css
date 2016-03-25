@@ -18,7 +18,7 @@ paper-fab.download {
   background: #03a9f4;
 }
 
-paper-card {
+.meme-text, .meme-card-image {
   max-width: 350px;
   max-height: 200px;
   --paper-card-header-color: var(--primary-background-color);
