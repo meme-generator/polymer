@@ -105,14 +105,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           this.$.memeImageGenerator.generateImage();
         },
 
-        /**
-         * Clear a specified input
-         */
-        clearInput: function(e) {
-          var propertyToClear = e.target.parentElement.getAttribute('data-property-to-clear');
-          this[propertyToClear] = '';
-        },
-
         ready: function() {
           this.items = [
             'heading',
