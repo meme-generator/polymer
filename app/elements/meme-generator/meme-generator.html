@@ -37,35 +37,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="flexchild"></div>
     </div>
 
+
+
+
     <div class="container flex-horizontal">
       <div class="flexchild"></div>
 
-      <paper-dropdown-menu label="Choose your meme" id="memeDropdownSelect">
-        <paper-menu class="dropdown-content" selected="{{selectedMemeIndex}}">
-          <template is="dom-repeat" items="[[memesDataResponse.data.memes]]" as="meme">
-            <paper-item id="meme-option-{{ index }}">
-              <img src="[[meme.url]]" width="50" height="50">
-              <span>[[meme.name]]</span>
-            </paper-item>
-          </template>
-        </paper-menu>
-      </paper-dropdown-menu>
+      <paper-card>
+
+        <div class="container flex-horizontal">
+          <div class="flexchild"></div>
+          <paper-dropdown-menu label="Choose your meme" id="memeDropdownSelect">
+            <paper-menu class="dropdown-content" selected="{{selectedMemeIndex}}">
+              <template is="dom-repeat" items="[[memesDataResponse.data.memes]]" as="meme">
+                <paper-item id="meme-option-{{ index }}">
+                  <iron-image class="meme-thumbnail" background-color: lightgray;"
+                              sizing="cover" preload fade src="[[meme.url]]"></iron-image>
+                  <span>[[meme.name]]</span>
+                </paper-item>
+              </template>
+            </paper-menu>
+          </paper-dropdown-menu>
+          <div class="flexchild"></div>
+        </div>
+
+
+        <paper-textarea label="Top line" is="iron-input" value="{{greeting::input}}"></paper-textarea>
+        <paper-textarea label="Bottom line" is="iron-input" value="{{footer::input}}"></paper-textarea>
+
+      </paper-card>
+
       <div class="flexchild"></div>
     </div>
-
-    <paper-input-container>
-      <paper-icon-button prefix icon="create"></paper-icon-button>
-      <label>Top Line</label>
-      <input is="iron-input" value="{{greeting::input}}">
-      <paper-icon-button suffix icon="close" on-tap="clearInput" data-property-to-clear="greeting"></paper-icon-button>
-    </paper-input-container>
-
-    <paper-input-container>
-      <paper-icon-button prefix icon="create"></paper-icon-button>
-      <label>Bottom Line</label>
-      <input is="iron-input" value="{{footer::input}}">
-      <paper-icon-button suffix icon="close" on-tap="clearInput" data-property-to-clear="footer"></paper-icon-button>
-    </paper-input-container>
 
     <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.png"></html-canvas-image>
     <paper-fab icon="file-download" title="Download" on-tap="saveImage" id="pageRight"></paper-fab>
