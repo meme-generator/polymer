@@ -1,0 +1,32 @@
+<dom-module id="linked-todo-list-menu-item">
+  <template>
+   <paper-item class="menu-trigger" on-tap="{{method}}"><content></content></paper-item>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'linked-todo-list-menu-item',
+      properties: {
+        position: {
+          type: String,
+          value: "",
+          reflectToAttribute: true,
+          notify: true
+        },
+        icon: {
+          type: String,
+          value: "",
+          reflectToAttribute: true,
+          notify: true
+        },
+        url: {
+          type: String,
+          value: "",
+          reflectToAttribute: true,
+          notify: true
+        }
+      },
+      ready: function (){console.log('I ready');}
+    });
+  </script>
+</dom-module>

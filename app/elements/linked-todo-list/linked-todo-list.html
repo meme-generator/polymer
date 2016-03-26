@@ -35,20 +35,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Drawer Content -->
         <paper-menu attr-for-item-title="label">
-          <paper-item class="menu-trigger" on-tap="newListItem">Next actions</paper-item>
-          <paper-item class="menu-trigger" on-tap="newListItem">Projects</paper-item>
-          <paper-item class="menu-trigger" on-tap="newListItem">Contexts</paper-item>
-          <!-- <paper-submenu label="paper-menu">
-            <paper-item class="menu-trigger" on-tap="newListItem">+ New List Item</paper-item>
-            <paper-menu class="menu-content sublist">
-            <paper-submenu label="Properties">
-            <paper-item class="menu-trigger">+ New List Item</paper-item>
-            <paper-menu class="menu-content sublist2">
-            <paper-item>+ New List Item</paper-item>
-            </paper-menu>
-            </paper-submenu>
-            </paper-menu>
-          </paper-submenu> -->
+          <linked-todo-list-menu-item method="displayNextActions">Next actions</linked-todo-list-menu-item>
+          <linked-todo-list-menu-item method="displayNextProjects">Projects</linked-todo-list-menu-item>
+          <linked-todo-list-menu-item method="displayNextContexts">Contexts</linked-todo-list-menu-item>
         </paper-menu>
 
       </paper-scroll-header-panel>
