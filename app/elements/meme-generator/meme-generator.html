@@ -43,7 +43,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="flexchild"></div>
       <paper-card>
 
-          <paper-dropdown-menu label="Choose your meme" id="memeDropdownSelect">
+          <paper-dropdown-menu label="Choose your meme" id="memeDropdownSelect" vertical-align="bottom" horizontal-align="left">
             <paper-menu class="dropdown-content" selected="{{selectedMemeIndex}}">
               <template is="dom-repeat" items="[[memesDataResponse.data.memes]]" as="meme">
                 <paper-item>
@@ -56,7 +56,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <paper-textarea label="Top line" is="iron-input" value="{{header::input}}"></paper-textarea>
         <paper-textarea label="Bottom line" is="iron-input" value="{{footer::input}}"></paper-textarea>
-
+         {{memeDownloadStatus}}
          <a href="{{memeDownloadUrl}}" target="_blank">{{memeDownloadUrl}}</a>
       </paper-card>
       <div class="flexchild"></div>
@@ -93,7 +93,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           selectedMemeIndex: {
             type: Number,
             value: 0
-            // observer: '_selectedMemeIndexChanged'
+          },
+          memeDownloadStatus: {
+            type: String,
+            value: '',
+            notify: true
           },
           memeDownloadUrl: {
             type: String,
@@ -110,20 +114,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
          * Generate image
          */
         saveImage: function() {
-          this.memeDownloadUrl = '';
+          this.memeDownloadStatus = 'Generating Image...';
           this.$.memeImageGenerator.generateImage();
         },
 
         _htmlCanvasImageCreated: function(data) {
+          this.memeDownloadStatus = '';
           this.memeDownloadUrl = data.detail.imageUrl;
         },
 
         ready: function() {
-          this.items = [
-            'heading',
-            'footer',
-            'filepath'
-          ];
         },
 
         nextPage: function() {
