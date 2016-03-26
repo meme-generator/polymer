@@ -114,6 +114,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
          * Generate image
          */
         saveImage: function() {
+          this.memeDownloadUrl = '';
           this.memeDownloadStatus = 'Generating Image...';
           this.$.memeImageGenerator.generateImage();
         },
