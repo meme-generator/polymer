@@ -27,7 +27,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-swipeable-container swipe-style="curve">
             <paper-card class="meme-card">
               <iron-image style="height: 300px; width: 300px; background-color: lightgray;"
-                          sizing="cover" preload fade src="[[item.url]]"></iron-image>
+                          sizing="cover" src="[[item.url]]"></iron-image>
               <p class="meme-header meme-text">{{header}}</p>
               <p class="meme-footer meme-text">{{footer}}</p>
             </paper-card>
@@ -57,12 +57,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <paper-textarea label="Top line" is="iron-input" value="{{header::input}}"></paper-textarea>
         <paper-textarea label="Bottom line" is="iron-input" value="{{footer::input}}"></paper-textarea>
 
+         <a href="{{memeDownloadUrl}}" target="_blank">{{memeDownloadUrl}}</a>
       </paper-card>
       <div class="flexchild"></div>
     </div>
 
-    <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.png"></html-canvas-image>
-    <paper-fab icon="file-download" title="Download" on-tap="saveImage" id="pageRight"></paper-fab>
+    <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.jpg"></html-canvas-image>
+
+    <paper-fab icon="file-download" title="Download" on-tap="saveImage" id="pageRight" mime-type="image/jpeg"></paper-fab>
 
   </template>
 
@@ -92,17 +94,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             type: Number,
             value: 0
             // observer: '_selectedMemeIndexChanged'
+          },
+          memeDownloadUrl: {
+            type: String,
+            value: '',
+            notify: true
           }
         },
         listeners: {
-          'iron-swipe': 'nextPage'
+          'iron-swipe': 'nextPage',
+          'html-canvas-image-base64-created': '_htmlCanvasImageCreated'
         },
 
         /**
          * Generate image
          */
         saveImage: function() {
+          this.memeDownloadUrl = '';
           this.$.memeImageGenerator.generateImage();
+        },
+
+        _htmlCanvasImageCreated: function(data) {
+          this.memeDownloadUrl = data.detail.imageUrl;
         },
 
         ready: function() {
