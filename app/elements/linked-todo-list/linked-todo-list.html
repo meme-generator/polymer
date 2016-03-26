@@ -24,57 +24,51 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
+    <paper-drawer-panel id="paperDrawerPanel" responsive-width="840px">
+      <!--  Drawer Menu -->
+      <paper-scroll-header-panel drawer fixed>
 
-    <!-- Drawer Toolbar -->
-    <paper-toolbar id="drawerToolbar">
-      <span class="menu-name">To Do:</span>
-    </paper-toolbar>
+        <!-- Drawer Toolbar -->
+        <paper-toolbar id="drawerToolbar">
+          <span class="menu-name">Menu</span>
+        </paper-toolbar>
 
-    <!-- Drawer Content -->
-
-    <paper-menu attr-for-item-title="label">
-      <paper-submenu label="paper-menu">
-        <paper-item class="menu-trigger" on-tap="newListItem">+ New List Item</paper-item>
-        <paper-menu class="menu-content sublist">
-        <paper-submenu label="Properties">
-        <paper-item class="menu-trigger">+ New List Item</paper-item>
-        <paper-menu class="menu-content sublist2">
-        <paper-item>+ New List Item</paper-item>
+        <!-- Drawer Content -->
+        <paper-menu attr-for-item-title="label">
+          <paper-item class="menu-trigger" on-tap="newListItem">Next actions</paper-item>
+          <paper-item class="menu-trigger" on-tap="newListItem">Projects</paper-item>
+          <paper-item class="menu-trigger" on-tap="newListItem">Contexts</paper-item>
+          <!-- <paper-submenu label="paper-menu">
+            <paper-item class="menu-trigger" on-tap="newListItem">+ New List Item</paper-item>
+            <paper-menu class="menu-content sublist">
+            <paper-submenu label="Properties">
+            <paper-item class="menu-trigger">+ New List Item</paper-item>
+            <paper-menu class="menu-content sublist2">
+            <paper-item>+ New List Item</paper-item>
+            </paper-menu>
+            </paper-submenu>
+            </paper-menu>
+          </paper-submenu> -->
         </paper-menu>
-        </paper-submenu>
-        </paper-menu>
-      </paper-submenu>
 
-      <!--<paper-submenu label="paper-submenu">-->
-      <!--<paper-item class="menu-trigger">paper-submenu</paper-item>-->
-      <!--<paper-menu class="menu-content sublist">-->
-      <!--<paper-submenu label="Properties">-->
-      <!--<paper-item class="menu-trigger">Properties</paper-item>-->
-      <!--<paper-menu class="menu-content sublist2">-->
-      <!--<paper-item>opened</paper-item>-->
-      <!--</paper-menu>-->
-      <!--</paper-submenu>-->
-      <!--<paper-submenu label="Methods">-->
-      <!--<paper-item class="menu-trigger">Methods</paper-item>-->
-      <!--<paper-menu class="menu-content sublist2">-->
-      <!--<paper-item>open()</paper-item>-->
-      <!--<paper-item>close()</paper-item>-->
-      <!--<paper-item>toggle()</paper-item>-->
-      <!--</paper-menu>-->
-      <!--</paper-submenu>-->
-      <!--</paper-menu>-->
-      <!--</paper-submenu>-->
+      </paper-scroll-header-panel>
+      <!-- Main Area -->
+      <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
+        <!-- Main Toolbar -->
+        <paper-toolbar id="mainToolbar">
+          <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+          <div class="app-name">Next actions</div>
+        </paper-toolbar>
 
-      <!--<paper-submenu label="Unavailable" disabled>-->
-      <!--<paper-item class="menu-trigger">Unavailable</paper-item>-->
-      <!--<paper-menu class="menu-content sublist">-->
-      <!--<paper-item>Unavailable 1</paper-item>-->
-      <!--<paper-item>Unavailable 2</paper-item>-->
-      <!--</paper-menu>-->
-      <!--</paper-submenu>-->
-    </paper-menu>
-
-
+        <!-- Main Content -->
+        <div class="content">
+          <paper-item class="menu-trigger">+ New List Item</paper-item>
+          <paper-item class="menu-trigger">+ New List Item</paper-item>
+          <paper-item class="menu-trigger">+ New List Item</paper-item>
+          <paper-item class="menu-trigger">+ New List Item</paper-item>
+        </div>
+      </paper-scroll-header-panel>
+    </paper-drawer-panel>
   </template>
 
   <script>
