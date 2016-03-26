@@ -74,24 +74,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- Drawer Scroll Header Panel -->
       <paper-scroll-header-panel drawer fixed>
 
-        <!-- Drawer Toolbar -->
-        <paper-toolbar id="drawerToolbar">
-          <span class="menu-name">Menu</span>
-        </paper-toolbar>
-
-        <!-- Drawer Content -->
-        <paper-menu class="app-menu" attr-for-selected="data-route" selected="[[route]]">
-          <paper-item>
-            <iron-icon icon="apps"></iron-icon>
-            <span>Apps</span>
-          </paper-item>
-
-          <a data-route="home" href="{{baseUrl}}" class="sublist">
-            <iron-icon icon="av:recent-actors"></iron-icon>
-            <span>Meme Generator</span>
-          </a>
-
-        </paper-menu>
+        <linked-todo-list></linked-todo-list>
 
       </paper-scroll-header-panel>
 
@@ -105,12 +88,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application name -->
           <div class="middle middle-container">
-            <div class="app-name">Meme Generator</div>
+            <div class="app-name">Linked To Do List</div>
           </div>
 
           <!-- Application sub title -->
           <div class="bottom bottom-container">
-            <div class="bottom-title">Make yours today!</div>
+            <div class="bottom-title">Link yours today!</div>
           </div>
         </paper-toolbar>
 
@@ -120,7 +103,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <section data-route="home">
 
               <br>
-              <linked-todo-list></linked-todo-list>
+              Content
 
             </section>
           </iron-pages>

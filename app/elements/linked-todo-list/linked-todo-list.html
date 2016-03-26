@@ -10,11 +10,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="../../bower_components/html-canvas-image/html-canvas-image.html">
 
 
 <dom-module id="linked-todo-list">
+  <link rel="import" type="css" href="linked-todo-list.css">
   <template>
     <style>
       :host {
@@ -23,10 +24,57 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <h1>&lt;linked-todo-list&gt;</h1>
-    <p class="paper-subhead">
-      {{author.name}}
-    </p>
+
+    <!-- Drawer Toolbar -->
+    <paper-toolbar id="drawerToolbar">
+      <span class="menu-name">To Do:</span>
+    </paper-toolbar>
+
+    <!-- Drawer Content -->
+
+    <paper-menu attr-for-item-title="label">
+      <paper-submenu label="paper-menu">
+        <paper-item class="menu-trigger" on-tap="newListItem">+ New List Item</paper-item>
+        <paper-menu class="menu-content sublist">
+        <paper-submenu label="Properties">
+        <paper-item class="menu-trigger">+ New List Item</paper-item>
+        <paper-menu class="menu-content sublist2">
+        <paper-item>+ New List Item</paper-item>
+        </paper-menu>
+        </paper-submenu>
+        </paper-menu>
+      </paper-submenu>
+
+      <!--<paper-submenu label="paper-submenu">-->
+      <!--<paper-item class="menu-trigger">paper-submenu</paper-item>-->
+      <!--<paper-menu class="menu-content sublist">-->
+      <!--<paper-submenu label="Properties">-->
+      <!--<paper-item class="menu-trigger">Properties</paper-item>-->
+      <!--<paper-menu class="menu-content sublist2">-->
+      <!--<paper-item>opened</paper-item>-->
+      <!--</paper-menu>-->
+      <!--</paper-submenu>-->
+      <!--<paper-submenu label="Methods">-->
+      <!--<paper-item class="menu-trigger">Methods</paper-item>-->
+      <!--<paper-menu class="menu-content sublist2">-->
+      <!--<paper-item>open()</paper-item>-->
+      <!--<paper-item>close()</paper-item>-->
+      <!--<paper-item>toggle()</paper-item>-->
+      <!--</paper-menu>-->
+      <!--</paper-submenu>-->
+      <!--</paper-menu>-->
+      <!--</paper-submenu>-->
+
+      <!--<paper-submenu label="Unavailable" disabled>-->
+      <!--<paper-item class="menu-trigger">Unavailable</paper-item>-->
+      <!--<paper-menu class="menu-content sublist">-->
+      <!--<paper-item>Unavailable 1</paper-item>-->
+      <!--<paper-item>Unavailable 2</paper-item>-->
+      <!--</paper-menu>-->
+      <!--</paper-submenu>-->
+    </paper-menu>
+
+
   </template>
 
   <script>
@@ -59,11 +107,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           // prototype).
           value: function() {
             return {
-              name:  'Dimitri Glazkov',
+              name:  'linked-todo-list',
               image: 'http://addyosmani.com/blog/wp-content/uploads/2013/04/unicorn.jpg',
             };
           }
-        },
+        }
       },
 
       // Element Lifecycle
@@ -104,23 +152,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       sayHello: function(greeting) {
         var response = greeting || 'Hello World!';
         return 'seed-element says, ' + response;
-      },
-
-      /**
-       * The `seed-element-lasers` event is fired whenever `fireLasers` is called.
-       *
-       * @event seed-element-lasers
-       * @detail {{sound: String}}
-       */
-
-      /**
-       * Attempt to destroy this element's enemies with a beam of light!
-       *
-       * Or, at least, dispatch an event in the vain hope that someone else will
-       * do the zapping.
-       */
-      fireLasers: function() {
-        this.fire('seed-element-lasers', {sound: 'Pew pew!'});
       }
     });
   </script>

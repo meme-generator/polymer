@@ -31,3 +31,6 @@ paper-card:active {
 .flexchild {
   @apply(--layout-flex);
 }
+paper-item {
+  cursor: pointer;
+}
