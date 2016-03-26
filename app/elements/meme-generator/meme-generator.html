@@ -26,8 +26,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <template is="dom-repeat" items="[[memesDataResponse.data.memes]]">
           <iron-swipeable-container swipe-style="curve">
             <paper-card class="meme-card">
-              <iron-image style="height: 300px; width: 300px; background-color: lightgray;"
-                          sizing="cover" preload fade src="[[item.url]]"></iron-image>
+              <!-- FIXME: iron-image does not seem to work well with html2canvas -->
+              <!-- <iron-image style="height: 300px; width: 300px; background-color: lightgray;"
+                          sizing="cover" preload fade src="[[item.url]]"></iron-image> -->
+              <img src="[[item.url]]" style="height: 300px; width: 300px; background-color: lightgray;" />
               <p class="meme-header meme-text">{{header}}</p>
               <p class="meme-footer meme-text">{{footer}}</p>
             </paper-card>
@@ -64,7 +66,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.jpg"></html-canvas-image>
 
-    <paper-fab icon="file-download" title="Download" on-tap="saveImage" id="pageRight" mime-type="image/jpeg"></paper-fab>
+    <paper-fab icon="file-download" title="Download" on-tap="saveImage" id="pageRight"></paper-fab>
 
   </template>
 
