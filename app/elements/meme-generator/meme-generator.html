@@ -56,13 +56,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <paper-textarea label="Top line" is="iron-input" value="{{header::input}}"></paper-textarea>
         <paper-textarea label="Bottom line" is="iron-input" value="{{footer::input}}"></paper-textarea>
-
+         {{memeDownloadStatus}}
+         <a href="{{memeDownloadUrl}}" target="_blank">{{memeDownloadUrl}}</a>
       </paper-card>
       <div class="flexchild"></div>
     </div>
 
-    <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.png"></html-canvas-image>
-    <paper-fab icon="file-download" title="Download" on-tap="saveImage" id="pageRight"></paper-fab>
+    <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.jpg"></html-canvas-image>
+
+    <paper-fab icon="file-download" title="Download" on-tap="saveImage" id="pageRight" mime-type="image/jpeg"></paper-fab>
 
   </template>
 
@@ -91,17 +93,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           selectedMemeIndex: {
             type: Number,
             value: 0
+          },
+          memeDownloadStatus: {
+            type: String,
+            value: '',
+            notify: true
+          },
+          memeDownloadUrl: {
+            type: String,
+            value: '',
+            notify: true
           }
         },
         listeners: {
-          'iron-swipe': 'nextPage'
+          'iron-swipe': 'nextPage',
+          'html-canvas-image-base64-created': '_htmlCanvasImageCreated'
         },
 
         /**
          * Generate image
          */
         saveImage: function() {
+          this.memeDownloadStatus = 'Generating Image...';
           this.$.memeImageGenerator.generateImage();
+        },
+
+        _htmlCanvasImageCreated: function(data) {
+          this.memeDownloadStatus = '';
+          this.memeDownloadUrl = data.detail.imageUrl;
         },
 
         ready: function() {
