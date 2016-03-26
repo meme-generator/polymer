@@ -21,6 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="flexchild"></div>
 
       <iron-ajax auto url="https://api.imgflip.com/get_memes" handle-as="json" last-response="{{memesDataResponse}}"></iron-ajax>
+
       <iron-pages id="memePages" selected="{{selectedMemeIndex}}">
 
         <template is="dom-repeat" items="[[memesDataResponse.data.memes]]">

@@ -1,25 +1,16 @@
 :host {
   display: block;
 }
-
 span {
   @apply(--paper-font-body1);
 }
-
 paper-fab {
   position: fixed;
   bottom: 24px;
-  z-index: 9999;
-  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);;
-}
-
-paper-fab.download {
-  left: 50%;
-  background: #03a9f4;
+  right: 24px;
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 paper-card {
-  padding: 24px;
-  width: 300px;
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 paper-card:hover, paper-card:focus, paper-fab:hover, paper-fab:focus {
@@ -34,89 +25,9 @@ paper-card:active {
   0 2px 4px -1px rgba(0, 0, 0, 0.4);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.meme-card {
-  padding: 0;
-  height: 300px;
-  width: 300px;
-}
-.meme {
-  height:300px;
-  width: 300px;
-}
-.meme-header {
-  top: -18px;
-}
-.meme-footer {
-  top: 180px;
-}
-#memeDropdownSelect {
-  width: 100%;
-}
-.meme-thumbnail {
-  width:50px;
-  height:50px;
-  background-color: lightgray;
-}
-.meme-text, .meme-card-image {
-  font-size: 34px;
-  position: absolute;
-  color: white;
-  padding: 0;
-  max-width: 350px;
-  max-height: 200px;
-  font-family: Impact, Charcoal, sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-  text-align: center;
-  -webkit-text-stroke: 1px black;
-  text-shadow:
-          2px 2px 0 #000,
-            /* Simulated effect for Firefox and Opera
-               and nice enhancement for WebKit */
-          -1px -1px 0 #000,
-          1px -1px 0 #000,
-          -1px  1px 0 #000,
-          1px  1px 0 #000;
-  /* If you want your things to swipe nicely, you might want to disable
-   * text selection on those elements. */
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  cursor: default;
-}
-.heading {
-  color: #ffffff;
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  font-size: 18px;
-}
-#pageLeft {
-  left: 24px;
-}
-#pageRight {
-  right: 24px;
-}
-.hiding {
-  display: none;
-}
 .flex-horizontal {
   @apply(--layout-horizontal);
 }
 .flexchild {
   @apply(--layout-flex);
-}
-
-paper-item img {
-  width: 50px;
-  height: 50px;
-}
-paper-item span {
-  font-family: Roboto, 'Helvetica Neue', Helvetica, sans-serif;
-  margin: 16px;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
 }
