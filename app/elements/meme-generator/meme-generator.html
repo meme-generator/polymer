@@ -20,53 +20,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="container flex-horizontal">
       <div class="flexchild"></div>
 
-      <iron-ajax auto url="https://api.imgflip.com/get_memes" handle-as="json" last-response="{{memesDataResponse}}"></iron-ajax>
-      <iron-pages id="memePages" selected="{{selectedMemeIndex}}">
-
-        <template is="dom-repeat" items="[[memesDataResponse.data.memes]]">
-          <iron-swipeable-container swipe-style="curve">
-            <paper-card class="meme-card">
-              <!-- FIXME: iron-image does not seem to work well with html2canvas -->
-              <!-- <iron-image style="height: 300px; width: 300px; background-color: lightgray;"
-                          sizing="cover" preload fade src="[[item.url]]"></iron-image> -->
-              <img src="[[item.url]]" style="height: 300px; width: 300px; background-color: lightgray;" />
-              <p class="meme-header meme-text">{{header}}</p>
-              <p class="meme-footer meme-text">{{footer}}</p>
-            </paper-card>
-          </iron-swipeable-container>
-        </template>
-
-      </iron-pages>
-
-      <div class="flexchild"></div>
-    </div>
-
-    <div class="container flex-horizontal">
-      <div class="flexchild"></div>
-      <paper-card>
-
-          <paper-dropdown-menu label="Choose your meme" id="memeDropdownSelect" vertical-align="bottom" horizontal-align="left">
-            <paper-menu class="dropdown-content" selected="{{selectedMemeIndex}}">
-              <template is="dom-repeat" items="[[memesDataResponse.data.memes]]" as="meme">
-                <paper-item>
-                  <iron-image class="meme-thumbnail" sizing="cover" preload fade src="[[meme.url]]"></iron-image>
-                  <span>[[meme.name]]</span>
-                </paper-item>
-              </template>
-            </paper-menu>
-          </paper-dropdown-menu>
-
-        <paper-textarea label="Top line" is="iron-input" value="{{header::input}}"></paper-textarea>
-        <paper-textarea label="Bottom line" is="iron-input" value="{{footer::input}}"></paper-textarea>
-         {{memeDownloadStatus}}
-         <a href="{{memeDownloadUrl}}" target="_blank">{{memeDownloadUrl}}</a>
+      <paper-card heading="Push Notifications">
+        <div class="card-content">
+          Subscribe to push notifications to stay up-to-date with the latest news!
+        </div>
+        <div class="card-actions">
+          <paper-button on-tap=subscribe>Subscribe</paper-button>
+        </div>
       </paper-card>
+
       <div class="flexchild"></div>
     </div>
-
-    <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.jpg"></html-canvas-image>
-
-    <paper-fab icon="file-download" title="Download" on-tap="saveImage" id="pageRight"></paper-fab>
 
   </template>
 
@@ -78,63 +42,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         is: 'meme-generator',
 
         properties: {
-          items: {
-            type: Array,
-            notify: true
-          },
-          header: {
-            type: String,
-            value: '',
-            notify: true
-          },
-          footer: {
-            type: String,
-            value: '',
-            notify: true
-          },
-          selectedMemeIndex: {
-            type: Number,
-            value: 0
-          },
-          memeDownloadStatus: {
-            type: String,
-            value: '',
-            notify: true
-          },
-          memeDownloadUrl: {
-            type: String,
-            value: '',
-            notify: true
-          }
         },
-        listeners: {
-          'iron-swipe': 'nextPage',
-          'html-canvas-image-base64-created': '_htmlCanvasImageCreated'
-        },
-
-        /**
-         * Generate image
-         */
-        saveImage: function() {
-          this.memeDownloadUrl = '';
-          this.memeDownloadStatus = 'Generating Image...';
-          this.$.memeImageGenerator.generateImage();
-        },
-
-        _htmlCanvasImageCreated: function(data) {
-          this.memeDownloadStatus = '';
-          this.memeDownloadUrl = data.detail.imageUrl;
-        },
-
-        ready: function() {
-        },
-
-        nextPage: function() {
-          this.$.memePages.selectNext();
-        },
-
-        previousPage: function() {
-          this.$.memePages.selectPrevious();
+        subscribe: function() {
+          console.log('pressed subscribe!');
         }
       });
     })();
