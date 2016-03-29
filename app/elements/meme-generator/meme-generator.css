@@ -60,7 +60,7 @@ iron-image {
   height:50px;
   background-color: lightgray;
 }
-.meme-text, .meme-card-image {
+.meme-text, .meme-card-image, img {
   font-size: 34px;
   position: absolute;
   color: white;
