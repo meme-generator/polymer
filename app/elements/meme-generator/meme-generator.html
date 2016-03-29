@@ -17,6 +17,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" type="css" href="meme-generator.css">
   <template>
 
+    <iron-ajax
+            id="thePusher"
+            auto
+            url="http://localhost:5000/subscribe-change"
+            params='{"alt":"json", "q":"chrome"}'
+            handle-as="json"
+            on-response="subscribe"
+            debounce-duration="300"></iron-ajax>
+
     <div class="container flex-horizontal">
       <div class="flexchild"></div>
 
@@ -45,8 +54,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         properties: {
         },
+        listeners: {
+          'request': 'foo'
+        },
         subscribe: function() {
           console.log('pressed subscribe!');
+          this.$.thePusher.generateRequest();
+        },
+        foo: function() {
+          console.log('foo');
         }
       });
     })();
