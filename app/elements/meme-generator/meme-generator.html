@@ -34,7 +34,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           Subscribe to push notifications to stay up-to-date with the latest news!
         </div>
         <div class="card-actions">
-          <paper-toggle-button on-tap="subscribe">{{subscribed}}</paper-toggle-button>
+          <paper-toggle-button on-tap="subscribe" id="subscribeToggle">{{subscribed}}</paper-toggle-button>
         </div>
       </paper-card>
 
@@ -64,6 +64,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         subscribe: function() {
           console.log('pressed subscribe!');
+          this.subscribed = this.$.subscribeToggle.checked;
           this.$.thePusher.generateRequest();
         },
         foo: function() {
