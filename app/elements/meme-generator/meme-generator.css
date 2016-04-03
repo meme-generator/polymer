@@ -71,3 +71,7 @@ paper-icon-button {
 paper-icon-button.white {
   color: white !important;
 }
+
+paper-toggle-button {
+  margin: 16px 0;
+}

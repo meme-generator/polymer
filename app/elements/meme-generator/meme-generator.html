@@ -34,7 +34,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           Subscribe to push notifications to stay up-to-date with the latest news!
         </div>
         <div class="card-actions">
-          <paper-button on-tap=subscribe>Subscribe</paper-button>
+          <paper-toggle-button on-tap="subscribe">{{subscribed}}</paper-toggle-button>
         </div>
       </paper-card>
 
@@ -53,6 +53,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         is: 'meme-generator',
 
         properties: {
+          subscribed: {
+            type: Boolean,
+            value: 'false',
+            notify: true
+          }
         },
         listeners: {
           'request': 'foo'
