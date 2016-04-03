@@ -9,7 +9,7 @@ span {
 paper-fab {
   position: fixed;
   bottom: 24px;
-  z-index: 9999;
+  z-index: 99;
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);;
 }
 
