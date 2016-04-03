@@ -24,12 +24,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <iron-pages id="memePages" selected="{{selectedMemeIndex}}">
 
         <template is="dom-repeat" items="[[memesDataResponse.data.memes]]">
-          <iron-swipeable-container swipe-style="curve">
+          <iron-swipeable-container swipe-style="curve" renewable>
             <paper-card class="meme-card">
               <!-- FIXME: iron-image does not seem to work well with html2canvas -->
-              <!-- <iron-image style="height: 300px; width: 300px; background-color: lightgray;"
-                          sizing="cover" preload fade src="[[item.url]]"></iron-image> -->
-              <img src="[[item.url]]" style="height: 300px; width: 300px; background-color: lightgray;" />
+              <iron-image style="height: 300px; width: 300px; background-color: lightgray;"
+                          sizing="cover" preload fade src="[[item.url]]"></iron-image>
+              <!--<img src="[[item.url]]" style="height: 300px; width: 300px; background-color: lightgray;" />-->
               <p class="meme-header meme-text">{{header}}</p>
               <p class="meme-footer meme-text">{{footer}}</p>
             </paper-card>
