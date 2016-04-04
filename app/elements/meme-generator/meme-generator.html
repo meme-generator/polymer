@@ -131,9 +131,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         swiped: function(e) {
           if (e.detail.direction == 'left') {
-            this.$.memePages.selectPrevious();
-          } else if (e.detail.direction == 'right') {
             this.$.memePages.selectNext();
+          } else if (e.detail.direction == 'right') {
+            this.$.memePages.selectPrevious();
           }
         }
 
