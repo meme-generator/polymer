@@ -67,6 +67,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.jpg"></html-canvas-image>
 
     <paper-fab icon="file-download" title="Download" on-tap="saveImage" id="pageRight"></paper-fab>
+    <paper-fab icon="device:wifi-tethering" title="Push Notify" on-tap="saveImage" class="pushNotify"></paper-fab>
+
+    <iron-a11y-keys id="a11y" target="[[target]]" keys="left right up down"
+                    on-keys-pressed="_updatePressed"></iron-a11y-keys>
 
   </template>
 
@@ -105,11 +109,45 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             type: String,
             value: '',
             notify: true
+          },
+          pressed: {
+            type: String,
+            readOnly: true,
+            value: ''
+          },
+
+          boundKeys: {
+            type: Array
+          },
+
+          target: {
+            type: Object,
+            value: function() {
+              return document.body;
+            }
           }
         },
         listeners: {
           'iron-swipe': 'swiped',
           'html-canvas-image-base64-created': '_htmlCanvasImageCreated'
+        },
+        _updatePressed: function(event) {
+          var keyPressed = event.detail.combo;
+
+          switch (keyPressed) {
+            case 'right':
+              this.$.memePages.selectNext();
+              break;
+            case 'down':
+              this.$.memePages.selectNext();
+              break;
+            case 'left':
+              this.$.memePages.selectPrevious();
+              break;
+            case 'up':
+              this.$.memePages.selectPrevious();
+              break;
+          }
         },
 
         /**
