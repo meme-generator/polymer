@@ -67,10 +67,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <html-canvas-image id="memeImageGenerator" container="memePages" filename="meme.jpg"></html-canvas-image>
 
     <paper-fab icon="file-download" title="Download" on-tap="saveImage" id="pageRight"></paper-fab>
-    <paper-fab icon="device:wifi-tethering" title="Push Notify" on-tap="saveImage" class="pushNotify"></paper-fab>
+    <paper-fab icon="device:wifi-tethering" title="Push Notify" on-tap="pushNotify" class="pushNotify"></paper-fab>
 
     <iron-a11y-keys id="a11y" target="[[target]]" keys="left right up down"
                     on-keys-pressed="_updatePressed"></iron-a11y-keys>
+
+    <paper-toast id="memeToast" text="Your meme has been pushed!">
+      <a href="#" on-tap="closeToast">DISMISS</a>
+    </paper-toast>
 
   </template>
 
@@ -173,6 +177,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           } else if (e.detail.direction == 'right') {
             this.$.memePages.selectPrevious();
           }
+        },
+
+        pushNotify: function() {
+          this.$.memeToast.open();
+        },
+        closeToast: function() {
+          this.$.memeToast.close();
         }
 
       });

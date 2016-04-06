@@ -123,3 +123,7 @@ paper-item span {
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
+paper-toast a {
+  color: var(--paper-indigo-a100);
+  text-decoration: none;
+}
