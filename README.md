@@ -3,7 +3,7 @@
 
 > A starting point for building web applications with Polymer 1.0
 
-### Included out of the box:
+### Included out of the box: (test)
 
 * [Polymer](https://www.polymer-project.org/), [Paper](https://elements.polymer-project.org/browse?package=paper-elements), [Iron](https://elements.polymer-project.org/browse?package=iron-elements) and [Neon](https://elements.polymer-project.org/browse?package=neon-elements) elements
 * [Material Design](http://www.google.com/design/spec/material-design/introduction.html) layout
